@@ -1,4 +1,4 @@
-###🧠 Project Description: Staged-LQR-LineFollowerBot
+### 🧠 Project Description: Staged-LQR-LineFollowerBot
 We developed a two-wheeled self-balancing line-following robot that uses a Staged LQR (Linear Quadratic Regulator) control strategy to maintain balance while following a line and avoiding obstacles.
 
 ##🔧 Hardware Overview
@@ -14,10 +14,10 @@ IR sensors for line detection (white line on black track)
 
 Ultrasonic sensor for obstacle avoidance
 
-##🧩 Mechanical Design
+## 🧩 Mechanical Design
 We designed a custom 3D model of the robot’s chassis, carefully placing all components to achieve a compact and stable body structure optimized for balance and sensor accessibility.
 
-##🧠 Control Algorithm: Staged LQR
+## 🧠 Control Algorithm: Staged LQR
 We employed a Staged LQR approach to stabilize the robot like an inverted pendulum:
 
 The system continuously reads the pitch angle from the BNO055.
@@ -33,7 +33,7 @@ Stronger corrective forces for large deviations.
 Smoother, less aggressive responses for minor disturbances.
 This results in adaptive and energy-efficient balancing, especially useful in dynamic environments.
 
-##💻 Software & Communication
+## 💻 Software & Communication
 We utilized the ESP32’s Wi-Fi capabilities to implement UDP communication for real-time tuning.
 
 A custom Python interface (Tkinter GUI) was built to:
