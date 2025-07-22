@@ -1,43 +1,68 @@
-# 🧠 Project Description: Staged-LQR-LineFollowerBot
-We developed a two-wheeled self-balancing line-following robot that uses a Staged LQR (Linear Quadratic Regulator) control strategy to maintain balance while following a line and avoiding obstacles.
+# 🤖 Staged-LQR-LineFollowerBot
 
-##🔧 Hardware Overview
-Microcontroller: ESP32 DevKit C3
+A two-wheeled, self-balancing, line-following robot built using the **Staged Linear Quadratic Regulator (LQR)** control technique. It dynamically maintains balance, follows a line, and avoids obstacles using smart sensors and real-time communication.
 
-Motors: DC motors for wheel movement
+---
 
-IMU: 9-axis BNO055 sensor for pitch angle estimation
+## 🔧 Hardware Overview
 
-Sensors:
+- **Microcontroller:** ESP32 DevKit C3  
+- **Motors:** DC motors for wheel movement  
+- **IMU Sensor:** 9-axis **BNO055** for pitch angle estimation  
+- **Sensors:**
+  - **IR Sensors** for line detection (white line on black track)
+  - **Ultrasonic Sensor** for obstacle avoidance  
 
-IR sensors for line detection (white line on black track)
-
-Ultrasonic sensor for obstacle avoidance
+---
 
 ## 🧩 Mechanical Design
-We designed a custom 3D model of the robot’s chassis, carefully placing all components to achieve a compact and stable body structure optimized for balance and sensor accessibility.
+
+We designed a **custom 3D model** of the robot’s chassis to:
+- Optimize **compactness** and **balance**
+- Ensure proper placement of components
+- Enhance **sensor accessibility**  
+The result is a sleek, efficient robot frame built for high stability.
+
+---
 
 ## 🧠 Control Algorithm: Staged LQR
-We employed a Staged LQR approach to stabilize the robot like an inverted pendulum:
 
-The system continuously reads the pitch angle from the BNO055.
+We implemented a **Staged LQR** controller to keep the robot balanced like an inverted pendulum.
 
-A reference pitch is defined (i.e., the balanced vertical position).
+### Process:
 
-Error in pitch (θ) is calculated and fed into the LQR controller.
+1. **Pitch angle** is continuously read from the BNO055 IMU.
+2. A **reference pitch value** is defined for perfect vertical balance.
+3. The **pitch error** (θ) is calculated.
+4. The error is fed into the **LQR controller**.
 
-Staged control: Different LQR gains (K1, K2) are applied depending on how far the robot is tilted — providing:
+### Staged Gains Strategy:
 
-Stronger corrective forces for large deviations.
+- Different **LQR gains (K1, K2)** are applied depending on the pitch deviation:
+  - **High deviation → Stronger correction**
+  - **Small deviation → Smoother correction**
 
-Smoother, less aggressive responses for minor disturbances.
-This results in adaptive and energy-efficient balancing, especially useful in dynamic environments.
+This staged approach leads to:
+- **More stable balancing**
+- **Adaptive response** in dynamic environments
+- **Energy-efficient control**
+
+---
 
 ## 💻 Software & Communication
-We utilized the ESP32’s Wi-Fi capabilities to implement UDP communication for real-time tuning.
 
-A custom Python interface (Tkinter GUI) was built to:
+We leveraged the **Wi-Fi capabilities** of the ESP32 for real-time control:
 
-Dynamically send staged LQR gain values to the robot.
+- **UDP communication** used for runtime tuning
+- Built a **Python Tkinter GUI** to:
+  - Dynamically send **Staged LQR values** to the robot
+  - **Accelerate tuning** without needing code re-uploading
 
-Accelerate the tuning and testing process without needing code re-uploading.
+---
+
+## 📷 Media (Optional)
+
+> Add images or videos of your robot in action here if available:
+```markdown
+![Robot Front View](./media/robot_front.jpg)
+![Tkinter Interface](./media/gui_tuning.png)
