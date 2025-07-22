@@ -1,43 +1,43 @@
-🦾 Staged-LQR-LineFollowerBot
-A two-wheeled, self-balancing line-following robot built using an ESP32 DevKit C3, designed to demonstrate control systems, sensor fusion, and staged LQR balancing.
+###🧠 Project Description: Staged-LQR-LineFollowerBot
+We developed a two-wheeled self-balancing line-following robot that uses a Staged LQR (Linear Quadratic Regulator) control strategy to maintain balance while following a line and avoiding obstacles.
 
-🧠 Overview
-This robot combines two main capabilities:
+##🔧 Hardware Overview
+Microcontroller: ESP32 DevKit C3
 
-Self-Balancing using a Staged Linear Quadratic Regulator (LQR) controller
+Motors: DC motors for wheel movement
 
-Line Following using IR sensors on a black track with a white path
+IMU: 9-axis BNO055 sensor for pitch angle estimation
 
-We use IR sensors to follow the line, ultrasonic sensors to avoid obstacles, and DC motors to drive the wheels. A BNO055 9-axis IMU provides real-time orientation data, allowing us to calculate the robot’s pitch angle and apply LQR-based correction.
+Sensors:
 
-🛠️ Core Features
-ESP32 DevKit C3: Main microcontroller with Wi-Fi support
+IR sensors for line detection (white line on black track)
 
-BNO055 IMU: Used to obtain the pitch angle for balancing
+Ultrasonic sensor for obstacle avoidance
 
-Staged LQR Control:
-Instead of a single set of gains, we dynamically select between two gain sets:
+##🧩 Mechanical Design
+We designed a custom 3D model of the robot’s chassis, carefully placing all components to achieve a compact and stable body structure optimized for balance and sensor accessibility.
 
-K1 for larger pitch errors (stronger corrective action)
+##🧠 Control Algorithm: Staged LQR
+We employed a Staged LQR approach to stabilize the robot like an inverted pendulum:
 
-K2 for small pitch deviations (smoother response)
+The system continuously reads the pitch angle from the BNO055.
 
-UDP Communication:
-We use the ESP32's Wi-Fi to send and receive staged LQR values via UDP, allowing live tuning.
+A reference pitch is defined (i.e., the balanced vertical position).
 
-Tkinter Tuning GUI:
-A Python GUI using Tkinter helps us adjust and send controller parameters to the robot in real time.
+Error in pitch (θ) is calculated and fed into the LQR controller.
 
-🔧 Hardware Components
-2× DC Motors (with driver)
+Staged control: Different LQR gains (K1, K2) are applied depending on how far the robot is tilted — providing:
 
-BNO055 IMU
+Stronger corrective forces for large deviations.
 
-IR Sensor Array (for line detection)
+Smoother, less aggressive responses for minor disturbances.
+This results in adaptive and energy-efficient balancing, especially useful in dynamic environments.
 
-Ultrasonic Sensor (for obstacle detection)
+##💻 Software & Communication
+We utilized the ESP32’s Wi-Fi capabilities to implement UDP communication for real-time tuning.
 
-Caster Wheel (used only in line-following mode)
+A custom Python interface (Tkinter GUI) was built to:
 
-ESP32 DevKit C3
+Dynamically send staged LQR gain values to the robot.
 
+Accelerate the tuning and testing process without needing code re-uploading.
