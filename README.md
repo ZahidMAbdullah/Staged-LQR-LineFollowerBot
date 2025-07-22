@@ -1,4 +1,4 @@
-### 🧠 Project Description: Staged-LQR-LineFollowerBot
+# 🧠 Project Description: Staged-LQR-LineFollowerBot
 We developed a two-wheeled self-balancing line-following robot that uses a Staged LQR (Linear Quadratic Regulator) control strategy to maintain balance while following a line and avoiding obstacles.
 
 ##🔧 Hardware Overview
