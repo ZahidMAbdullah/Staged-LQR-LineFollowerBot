@@ -4,7 +4,7 @@ A two-wheeled, self-balancing, line-following robot built using the **Staged Lin
 
 ---
 
-## 🔧 Hardware Overview
+## Hardware Overview
 
 - **Microcontroller:** ESP32 DevKit C3  
 - **Motors:** DC motors for wheel movement  
@@ -15,7 +15,7 @@ A two-wheeled, self-balancing, line-following robot built using the **Staged Lin
 
 ---
 
-## 🧩 Mechanical Design
+## Mechanical Design
 
 We designed a **custom 3D model** of the robot’s chassis to:
 - Optimize **compactness** and **balance**
@@ -25,7 +25,7 @@ The result is a sleek, efficient robot frame built for high stability.
 
 ---
 
-## 🧠 Control Algorithm: Staged LQR
+## Control Algorithm: Staged LQR
 
 We implemented a **Staged LQR** controller to keep the robot balanced like an inverted pendulum.
 
@@ -49,7 +49,7 @@ This staged approach leads to:
 
 ---
 
-## 💻 Software & Communication
+## Software & Communication
 
 We leveraged the **Wi-Fi capabilities** of the ESP32 for real-time control:
 
