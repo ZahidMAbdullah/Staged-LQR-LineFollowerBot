@@ -6,7 +6,7 @@ A two-wheeled, self-balancing, line-following robot built using the **Staged Lin
 
 ## Hardware Overview
 
-- **Microcontroller:** ESP32 DevKit C3  
+- **Microcontroller:** ESP32 DevKit S3  
 - **Motors:** DC motors for wheel movement  
 - **IMU Sensor:** 9-axis **BNO055** for pitch angle estimation  
 - **Sensors:**
