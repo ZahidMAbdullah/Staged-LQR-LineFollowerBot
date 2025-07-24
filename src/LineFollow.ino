@@ -4,7 +4,7 @@
 #define B_IN1 4  // Left motor control pin 1
 #define B_IN2 5  // Left motor control pin 2
 
-#define BASE_SPEED 12  // Lower base speed for better control
+#define BASE_SPEED 120  // Lower base speed for better control
 
 // ========== IR Sensor Pins ==========
 const int irSensorPins[] = {10, 11, 12, 13, 14}; // L2, L1, C, R1, R2
